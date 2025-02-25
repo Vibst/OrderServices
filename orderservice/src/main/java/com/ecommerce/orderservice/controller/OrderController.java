@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.ecommerce.orderservice.entity.Order;
+import com.ecommerce.orderservice.model.OrderModel;
 import com.ecommerce.orderservice.service.OrderService;
 
 @RestController
@@ -21,8 +22,8 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/order")
-    public ResponseEntity<Order> saveOrder(@RequestBody Order order){
-        Order isOrder =  orderService.saveOrder(order);
+    public ResponseEntity<OrderModel> saveOrder(@RequestBody OrderModel orderModel){
+        OrderModel isOrder =  orderService.saveOrder(orderModel);
 
         return ResponseEntity.status(HttpStatus.ACCEPTED).body(isOrder);
         

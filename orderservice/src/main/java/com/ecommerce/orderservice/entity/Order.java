@@ -22,14 +22,17 @@ import java.util.List;
 @Getter
 @Setter
 public class Order {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long orderId;
-    public String productName;
-    public String orderName;
-    public String skuCode;
-    @OneToMany(cascade = CascadeType.ALL)
-    public List<OrderItems> orderItems;
+    private Long orderId;
 
-    
+    private String productName;
+    private String orderName;
+    private String skuCode;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<OrderItems> orderItems;
+
 }
+
